@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76d5e525-2a28-405f-88aa-c95dfcbf07ce" name="Default Changelist" comment="" />
+    <list default="true" id="76d5e525-2a28-405f-88aa-c95dfcbf07ce" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +41,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -55,9 +60,9 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="374" y="206" key="EditFileWatcherDialog/0.23.1440.797@0.23.1440.797" timestamp="1584516333125" />
-    <state x="229" y="60" key="SettingsEditor" timestamp="1584725107346">
+    <state x="229" y="60" key="SettingsEditor" timestamp="1584729745246">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="229" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1584725107346" />
+    <state x="229" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1584729745246" />
   </component>
 </project>
