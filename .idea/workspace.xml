@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76d5e525-2a28-405f-88aa-c95dfcbf07ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helpers/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="76d5e525-2a28-405f-88aa-c95dfcbf07ce" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +19,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZI31jQd6jQnmlypXkNqzkxAfHw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -43,6 +40,15 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/repository" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/internal" />
+      <recent name="$PROJECT_DIR$/internal/store" />
+      <recent name="$PROJECT_DIR$/helpers" />
+    </key>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -64,5 +70,9 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="229" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1584729745246" />
+    <state x="400" y="178" width="639" height="486" key="find.popup" timestamp="1586010339372">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="400" y="178" width="639" height="486" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1586010339372" />
   </component>
 </project>
