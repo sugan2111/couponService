@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/sugan2111/couponService/repository"
@@ -9,22 +10,22 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// RetrieveProcess returns a coupon
 func RetrieveProcess(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	var params = mux.Vars(r)
-	id, ok := params["id"]
+	idVal, ok := params["id"]
 	if !ok {
-		//log something
+		http.Error(w, fmt.Sprintf("%s is not a valid ID", params["id"]), http.StatusBadRequest)
+		return
 	}
 
-	coupon, err := repository.RetrieveCoupon(id)
+	coupon, err := repository.DB.RetrieveCoupon(idVal)
 	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte(err.Error()))
+		http.Error(w, "The coupon you requested does not exist.", http.StatusNotFound)
 	}
 
 	json.NewEncoder(w).Encode(coupon)
 	w.WriteHeader(http.StatusOK)
-
 }

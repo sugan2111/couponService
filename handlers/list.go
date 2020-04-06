@@ -7,13 +7,13 @@ import (
 	"github.com/sugan2111/couponService/repository"
 )
 
+//ListProcess lists all coupons
 func ListProcess(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	coupons, err := repository.ListCoupons()
+	coupons, err := repository.DB.ListCoupons()
 	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte(err.Error()))
+		http.Error(w, "No coupons exist.", http.StatusNotFound)
 	}
 
 	json.NewEncoder(w).Encode(coupons)

@@ -24,7 +24,7 @@ func UpdateProcess(w http.ResponseWriter, r *http.Request) {
 	// we decode our body request params
 	_ = json.NewDecoder(r.Body).Decode(&coupon)
 
-	coupon, err := repository.UpdateCoupon(coupon, id)
+	coupon, err := repository.DB.UpdateCoupon(coupon, id)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte(err.Error()))

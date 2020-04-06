@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76d5e525-2a28-405f-88aa-c95dfcbf07ce" name="Default Changelist" comment="" />
+    <list default="true" id="76d5e525-2a28-405f-88aa-c95dfcbf07ce" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/retrieve.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/retrieve.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/model/model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/repository.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

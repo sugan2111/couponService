@@ -5,7 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	"net/http"
 
 	"go.mongodb.org/mongo-driver/bson"
 
@@ -16,13 +15,15 @@ import (
 
 type Repository interface {
 	DeleteCoupon(id string) (int64, error)
-	UpdateCoupon(r *http.Request, id string) (model.Coupon, error)
+	UpdateCoupon(coupon model.Coupon, id string) (model.Coupon, error)
 	CreateCoupon(coupon model.Coupon) (interface{}, error)
 	ListCoupons() ([]model.Coupon, error)
 	RetrieveCoupon(id string) (model.Coupon, error)
 }
 
-func RetrieveCoupon(id string) (model.Coupon, error) {
+var DB Repository
+
+func (d MongoStore) RetrieveCoupon(id string) (model.Coupon, error) {
 
 	coupon := model.Coupon{}
 	idVal, err := primitive.ObjectIDFromHex(id)
@@ -30,21 +31,18 @@ func RetrieveCoupon(id string) (model.Coupon, error) {
 		return coupon, fmt.Errorf("unable to convert id into hex:%v", err)
 	}
 
-	collection := ConnectDB()
-
-	err = collection.FindOne(context.TODO(), model.Coupon{ID: idVal}).Decode(&coupon)
+	err = d.FindOne(context.TODO(), model.Coupon{ID: idVal}).Decode(&coupon)
 	if err != nil {
 		return coupon, fmt.Errorf("unable to retrieve item:%v", err)
 	}
 	return coupon, nil
 }
 
-func ListCoupons() ([]model.Coupon, error) {
-	collection := ConnectDB()
+func (d MongoStore) ListCoupons() ([]model.Coupon, error) {
 	var coupons []model.Coupon
 
 	// bson.M{} to get all data.
-	cur, err := collection.Find(context.TODO(), bson.M{})
+	cur, err := d.Find(context.TODO(), bson.M{})
 	if err != nil {
 		return nil, fmt.Errorf("unable to list coupons:%v", err)
 	}
@@ -71,11 +69,9 @@ func ListCoupons() ([]model.Coupon, error) {
 	return coupons, nil
 }
 
-func CreateCoupon(coupon model.Coupon) (interface{}, error) {
+func (d MongoStore) CreateCoupon(coupon model.Coupon) (interface{}, error) {
 
-	collection := ConnectDB()
-
-	result, err := collection.InsertOne(context.TODO(), coupon)
+	result, err := d.InsertOne(context.TODO(), coupon)
 	if err != nil {
 		return coupon, fmt.Errorf("unable to insert item:%v", err)
 	}
@@ -83,15 +79,12 @@ func CreateCoupon(coupon model.Coupon) (interface{}, error) {
 	return result.InsertedID, nil
 }
 
-func UpdateCoupon(coupon model.Coupon, id string) (model.Coupon, error) {
+func (d MongoStore) UpdateCoupon(coupon model.Coupon, id string) (model.Coupon, error) {
 
 	idVal, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return coupon, fmt.Errorf("unable to convert id into hex:%v", err)
 	}
-
-	collection := ConnectDB()
-
 	// Create filter
 	filter := bson.M{"_id": idVal}
 
@@ -105,7 +98,7 @@ func UpdateCoupon(coupon model.Coupon, id string) (model.Coupon, error) {
 		}},
 	}
 
-	err = collection.FindOneAndUpdate(context.TODO(), filter, update).Decode(&coupon)
+	err = d.FindOneAndUpdate(context.TODO(), filter, update).Decode(&coupon)
 	if err != nil {
 		return coupon, fmt.Errorf("unable to update item:%v", err)
 	}
@@ -115,17 +108,15 @@ func UpdateCoupon(coupon model.Coupon, id string) (model.Coupon, error) {
 	return coupon, nil
 }
 
-func DeleteCoupon(id string) (int64, error) {
+func (d MongoStore) DeleteCoupon(id string) (int64, error) {
 
 	idVal, err := primitive.ObjectIDFromHex(id)
 	if err != nil {
 		return 0, err
 	}
-	collection := ConnectDB()
-
 	filter := bson.M{"_id": idVal}
 
-	result, err := collection.DeleteOne(context.TODO(), filter)
+	result, err := d.DeleteOne(context.TODO(), filter)
 	if err != nil {
 		return 0, errors.New("500. Internal Server Error")
 	}
