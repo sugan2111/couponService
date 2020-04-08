@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/sugan2111/couponService/repository"
+	"github.com/sugan2111/couponService/coupon/repository"
 )
 
 type Router struct {

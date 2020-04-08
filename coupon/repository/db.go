@@ -5,33 +5,50 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"time"
 
+	"github.com/sugan2111/couponService/coupon/model"
 	"go.mongodb.org/mongo-driver/bson"
-
-	"github.com/sugan2111/couponService/repository/model"
-
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	bson2 "gopkg.in/mgo.v2/bson"
+
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type Repository interface {
-	DeleteCoupon(id string) (int64, error)
-	UpdateCoupon(coupon model.Coupon, id string) (model.Coupon, error)
-	CreateCoupon(coupon model.Coupon) (interface{}, error)
-	ListCoupons() ([]model.Coupon, error)
-	RetrieveCoupon(id string) (model.Coupon, error)
+type MongoStore struct {
+	*mongo.Collection
 }
 
-var DB Repository
+// ConnectDB is a function to connect mongoDB
+func ConnectDB() *mongo.Collection {
 
-func (d MongoStore) RetrieveCoupon(id string) (model.Coupon, error) {
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	// Set client options
+	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
 
-	coupon := model.Coupon{}
-	idVal, err := primitive.ObjectIDFromHex(id)
+	// Connect to MongoDB
+	client, err := mongo.Connect(ctx, clientOptions)
+
 	if err != nil {
-		return coupon, fmt.Errorf("unable to convert id into hex:%v", err)
+		log.Fatal(err)
 	}
 
-	err = d.FindOne(context.TODO(), model.Coupon{ID: idVal}).Decode(&coupon)
+	collection := client.Database("myrestapi").Collection("coupons")
+
+	return collection
+}
+
+func NewClient(uri string) MongoStore {
+	return MongoStore{ConnectDB()}
+
+}
+
+func (d MongoStore) RetrieveCoupon(id string) (model.Coupon, error) {
+	var coupon model.Coupon
+	idVal := bson2.ObjectIdHex(id)
+
+	err := d.FindOne(context.TODO(), model.Coupon{ID: idVal}).Decode(&coupon)
 	if err != nil {
 		return coupon, fmt.Errorf("unable to retrieve item:%v", err)
 	}
@@ -69,7 +86,7 @@ func (d MongoStore) ListCoupons() ([]model.Coupon, error) {
 	return coupons, nil
 }
 
-func (d MongoStore) CreateCoupon(coupon model.Coupon) (interface{}, error) {
+func (d MongoStore) CreateCoupon(coupon model.Coupon) (string, error) {
 
 	result, err := d.InsertOne(context.TODO(), coupon)
 	if err != nil {

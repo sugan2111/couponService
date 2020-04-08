@@ -1,10 +1,10 @@
-package handlers
+package handler
 
 import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/sugan2111/couponService/repository"
+	"github.com/sugan2111/couponService/coupon/repository"
 )
 
 //ListProcess lists all coupons

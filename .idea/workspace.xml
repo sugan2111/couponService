@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76d5e525-2a28-405f-88aa-c95dfcbf07ce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/coupon/model/model.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/create.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/list.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/retrieve.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/retrieve.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/update.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/model/model.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/model/model.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/create.go" beforeDir="false" afterPath="$PROJECT_DIR$/coupon/handler/create.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/delete.go" beforeDir="false" afterPath="$PROJECT_DIR$/coupon/handler/delete.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/list.go" beforeDir="false" afterPath="$PROJECT_DIR$/coupon/handler/list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/retrieve.go" beforeDir="false" afterPath="$PROJECT_DIR$/coupon/handler/retrieve.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/coupon/handler/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/coupon/repository/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/model/model.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/coupon/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +57,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/repository" />
+      <recent name="$PROJECT_DIR$/coupon" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/repository" />
       <recent name="$PROJECT_DIR$/internal" />
       <recent name="$PROJECT_DIR$/internal/store" />
-      <recent name="$PROJECT_DIR$/helpers" />
     </key>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,5 +88,16 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="400" y="178" width="639" height="486" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1586010339372" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/coupon/repository/repository.go</url>
+          <line>9</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
